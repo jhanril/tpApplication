@@ -10,6 +10,8 @@ window.Vue = require('vue');
 
 // VForm Validation
 import { Form, HasError, AlertError } from 'vform'
+// Moment
+import moment from 'moment';
 
 window.Form = Form;
 Vue.component(HasError.name, HasError)
@@ -33,6 +35,14 @@ const router = new VueRouter({
     routes, // short for `routes: routes`
     linkActiveClass: "active", // active class for non-exact links.
     linkExactActiveClass: "active" // active class for *exact* links.
+})
+
+Vue.filter('capitalize', function(value) {
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
+Vue.filter('dateFormat', function(date) {
+    return moment(date).format('MMMM Do YYYY');
 })
 
 /**
