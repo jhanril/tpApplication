@@ -8,8 +8,16 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// VForm Validation
+import { Form, HasError, AlertError } from 'vform'
+
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+// End Vform
 
 import VueRouter from 'vue-router'
+
 Vue.use(VueRouter)
 
 
