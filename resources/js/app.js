@@ -18,7 +18,34 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 // End Vform
 
-import VueRouter from 'vue-router'
+// Vue progress bar
+import VueProgressBar from 'vue-progressbar';
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '5px'
+})
+
+// SweetAlert2
+import Swal from 'sweetalert2';
+window.Swal = Swal;
+
+const toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
+
+window.Toast = toast;
+
+// VueRouter
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter)
 
@@ -44,6 +71,8 @@ Vue.filter('capitalize', function(value) {
 Vue.filter('dateFormat', function(date) {
     return moment(date).format('MMMM Do YYYY');
 })
+
+window.Fire = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
