@@ -21,3 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResources([
     'user' => 'API\UserController'
 ]);
+
+/**
+ * Client ID: 1
+ * Client secret: dPxrujaWPUFMM8zW4mFQCQnf5awOz7SPZ9O1aPjU
+ * Password grant client created successfully.
+ * Client ID: 2
+ * Client secret: GRrlwI4EMy2BnenBrhFwJRjX0OKibrToAZ2yK4vk
+ */
